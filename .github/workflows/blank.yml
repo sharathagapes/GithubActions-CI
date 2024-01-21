@@ -1,16 +1,25 @@
-All collection items must start at the same column (16:8)
-  14 |       runs-on: ubuntu_latest
-  15 |       steps:
-> 16 |        -uses: actions/checkout@v3
-     |        ^^^^^^^^^^^^^^^^^^^^^^^^^^
-> 17 |        -name: hello world
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^
-> 18 |         run: echo "Hello World"
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^
-> 19 |         shell: bash
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^
-> 20 |     Bye:
-     | ^
-  21 |       runs-on: ubuntu_latest
-  22 |       steps:
-  23 |         -name: bye world
+name: Hello Wolrd Workflow
+
+on:
+   push:
+    branches:
+     - main
+   pull request:
+    branches:
+     - main
+   workflow_dispatch:
+
+jobs:
+    hello:
+      runs-on: ubuntu_latest
+      steps:
+       -uses: actions/checkout@v3
+       -name: hello world
+        run: echo "Hello World"
+        shell: bash
+    Bye:
+      runs-on: ubuntu_latest
+      steps:
+        -name: bye world
+         run: echo "Bye World"
+         shell: bash
